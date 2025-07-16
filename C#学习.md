@@ -128,3 +128,42 @@ enum Days { Sun, Mon, tue, Wed, thu, Fri, Sat };
 ​            2、统计频次
 
 ​            3、缓存数据
+
+**链表 ListNode**
+
+链表指针移动
+
+```c#
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode ResultNode = new   ListNode(0); //哑点
+        ListNode Current = ResultNode;
+        int carry = 0;
+        //同时遍历两张链表
+        while(l1  != null || l2 != null || carry !=0)
+        {
+            int x = (l1 != null) ? l1.val : 0;
+            int y = (l2 != null) ? l2.val : 0;
+            int sum = x + y +carry;
+            carry = sum /10;
+            Current.next = new ListNode (sum%10);
+            Current = Current.next;
+            if(l1 != null) l1 = l1.next; 
+            if(l2 != null) l2 = l2.next; 
+        }
+        return ResultNode.next;
+    }
+}
+```
+
