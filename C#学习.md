@@ -121,3 +121,10 @@ enum Days { Sun, Mon, tue, Wed, thu, Fri, Sat };
 
 **字典 Dictionary<TKey, TValue>**
 
+需引入System.Collections.Generic 
+
+作用：1、数据索引
+
+​            2、统计频次
+
+​            3、缓存数据
