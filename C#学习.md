@@ -68,6 +68,76 @@ public 返回类型 方法名称( params 类型名称[] 数组名称 )
 
 5、Array 类，是数组的基类
 
+数组的使用
+
+1、数组长度修改
+
+```C#
+int[] numbers = { 1, 2, 3 };
+
+// "增加"元素（实际是创建新数组）
+int[] newArray = new int[numbers.Length + 1];
+Array.Copy(numbers, newArray, numbers.Length);//复制一个数组的元素到新的数组，（旧，新，复制的元素个数）
+newArray[^1] = 4; // 添加新元素到末尾，^1 表示倒一 ，^表示倒二，依次类推
+
+// "减少"元素（删除最后一个元素）
+int[] smallerArray = new int[numbers.Length - 1];
+Array.Copy(numbers, smallerArray, smallerArray.Length);
+```
+
+2、Array.Resize方法
+
+```c#
+// 扩展数组
+Array.Resize(ref numbers, numbers.Length + 1);
+numbers[^1] = 4; // 添加新元素
+
+// 缩小数组
+Array.Resize(ref numbers, numbers.Length - 1);
+```
+
+3、动态集合 List<>
+
+```c#
+// 创建列表（相当于可变长数组）
+List<int> list = new List<int> { 1, 2, 3 };
+
+// 增加元素
+list.Add(4);       // 末尾添加
+list.Insert(1, 5); // 在索引1处插入
+
+// 减少元素
+list.Remove(2);    // 删除值为2的元素
+list.RemoveAt(0);  // 删除索引0的元素
+
+// 转回数组（如果需要）
+int[] array = list.ToArray();
+```
+
+4、数组常用操作
+
+```c#
+int[] arr = { 1, 2, 3, 4, 5 };
+
+// 查找元素
+int index = Array.IndexOf(arr, 3); // 返回值2（索引位置）
+
+// 排序
+Array.Sort(arr); // 升序排列
+
+// 反转
+Array.Reverse(arr);
+
+// 清空部分内容
+Array.Clear(arr, 0, 2); // 清空前2个元素（设为0）
+```
+
+**建议**
+
+- 当元素数量**固定不变**时使用数组 `int[]`
+- 当需要**动态增减**元素时使用 `List`
+- 两者可通过 `.ToArray()` 和 `.ToList()` 相互转换
+
 
 
 **结构体 Struct**
