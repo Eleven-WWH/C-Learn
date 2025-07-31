@@ -13,7 +13,7 @@ Git文件提交上传操作
 
 添加已追踪的文件，删除或修改 git add -u
 
-2、git commit m"备注"     文件提交
+2、git commit -m  "备注"     文件提交
 
 3、git push origin main/master  推送到远程
 
