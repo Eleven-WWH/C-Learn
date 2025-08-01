@@ -1,0 +1,56 @@
+**特性**
+
+是用于在运行时传递程序中各种元素（比如类、方法、结构、枚举、组件等）的行为信息的声明性标签
+
+语法
+
+```c#
+[attribute(positional_parameters, name_parameter = value, ...)]
+element
+
+```
+
+**预定义特性**
+
+- AttributeUsage
+- Conditional
+- Obsolete
+
+**AttributeUsage** ：描述了如何使用一个自定义特性类。它规定了特性可应用到的项目的类型。
+
+```c#
+[AttributeUsage(
+   validon,
+   AllowMultiple=allowmultiple,
+   Inherited=inherited
+)]
+
+```
+
+- 参数 validon 规定特性可被放置的语言元素。它是枚举器 *AttributeTargets* 的值的组合。默认值是 *AttributeTargets.All*。
+- 参数 *allowmultiple*（可选的）为该特性的 *AllowMultiple* 属性（property）提供一个布尔值。如果为 true，则该特性是多用的。默认值是 false（单用的）。
+- 参数 *inherited*（可选的）为该特性的 *Inherited* 属性（property）提供一个布尔值。如果为 true，则该特性可被派生类继承。默认值是 false（不被继承）。
+
+```c#
+[AttributeUsage(AttributeTargets.Class |
+AttributeTargets.Constructor |
+AttributeTargets.Field |
+AttributeTargets.Method |
+AttributeTargets.Property, 
+AllowMultiple = true)]
+
+```
+
+
+
+**Conditional**
+
+这个预定义特性标记了一个条件方法，其执行依赖于指定的预处理标识符。
+
+```c#
+[Conditional(
+   conditionalSymbol
+)]
+
+```
+
