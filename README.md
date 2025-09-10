@@ -23,9 +23,17 @@
 
 **Git文件初始化、更新到本地仓库操作**
 
+1、初始化本地方库   git init
+
+2、建立远程连接  git remote add origin <url>
+
+3、 拉取文件到本地  git pull origin main/master
 
 
-git pull origin main/master
+
+
+
+
 
 
 
