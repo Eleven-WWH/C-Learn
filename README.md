@@ -44,7 +44,13 @@ Host github.com
     IdentityFile ~/.ssh/id_rsa  # 如果您的密钥是其他名称，如 id_ed25519，请修改这里
 ```
 
-3、 拉取文件到本地  git pull origin main/master
+3、若是https更换为ssh,可执行一下操作
+
+```
+git remote set-url origin git@github.com:Eleven-WWH/ZhaoXi.git
+```
+
+4、 拉取文件到本地  git pull origin main/master
 
 
 
