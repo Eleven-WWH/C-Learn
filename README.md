@@ -25,7 +25,24 @@
 
 1、初始化本地方库   git init
 
-2、建立远程连接  git remote add origin <url>
+2、建立远程连接  git remote add origin <url>（使用https/或ssh）
+
+​      配置后会后网络端口被封锁，因此使用ssh连接，并修改端口，走https 443的端口
+
+​      配置config文件
+
+- **Windows**: `C:\Users\你的用户名\.ssh\config`
+- **Mac/Linux**: `~/.ssh/config`
+  （如果 `.ssh` 目录或 `config` 文件不存在，请手动创建。）
+
+```
+Host github.com
+    Hostname ssh.github.com
+    User git
+    Port 443
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa  # 如果您的密钥是其他名称，如 id_ed25519，请修改这里
+```
 
 3、 拉取文件到本地  git pull origin main/master
 
