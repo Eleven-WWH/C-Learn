@@ -19,6 +19,39 @@
 
 
 
+**文件提交问题，当提交历史有大文件无法上传时，git push 会导致历史都无法上传**
+
+git status：查看目前工作目录和暂存区
+
+git push：检查整个提交历史
+
+**解决方案1：**
+
+切断历史重新开始，删除旧的.git文件夹
+
+```
+--删除当前git
+rm -rf .git
+
+--重新初始化git仓库
+git init
+git add
+git commit -m"XXX"
+
+--重新添加远程仓库
+git remote add origin <URL>
+git push -u -f origin master
+(-r/ --force 关键，会全新的本地历史覆盖远程仓库的历史)
+```
+
+**解决方案2：**
+
+工具清理历史
+
+暂不处理
+
+
+
 
 
 **Git文件初始化、更新到本地仓库操作**
@@ -76,6 +109,14 @@ git stash : 它允许你将当前工作目录中的未提交更改（包括已�
 当git pull完代码后，执行 git stash pop可将之间修改的代码在拉回来。
 
 冲突问题**如果使用git pull有冲突，则合并完冲突之后，执行一下** **git rebase --continue** **就好了**，其它和原先的用法没有任何区别。
+
+
+
+
+
+
+
+
 
 
 
